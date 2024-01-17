@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back to Top</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+      }
+
+      #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      #backToTopBtn:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="font-size: 50px;background-color: black; color: green; font-size: 14px;">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempore
+      exercitationem ex facilis iusto ad rerum, excepturi voluptatem totam sed
+      culpa non consequuntur, dolorem pariatur optio iste explicabo fugit
+      inventore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Commodi tempore exercitationem ex facilis iusto ad rerum, excepturi
+      voluptatem totam sed culpa non consequuntur, dolorem pariatur optio iste
+      explicabo fugit inventore! Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Commodi tempore exercitationem ex facilis iusto ad
+      rerum, excepturi voluptatem totam sed culpa non consequuntur, dolorem
+      pariatur optio iste explicabo fugit inventore! Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Commodi tempore exercitationem ex facilis
+      iusto ad rerum, excepturi voluptatem totam sed culpa non consequuntur,
+      dolorem pariatur optio iste explicabo fugit inventore! Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Commodi tempore exercitationem ex
+      facilis iusto ad rerum, excepturi voluptatem totam sed culpa non
+      consequuntur, dolorem pariatur optio iste explicabo fugit inventore! Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Commodi tempore
+      exercitationem ex facilis iusto ad rerum, excepturi voluptatem totam sed
+      culpa non consequuntur, dolorem pariatur optio iste explicabo fugit
+      inventore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Commodi tempore exercitationem ex facilis iusto ad rerum, excepturi
+      voluptatem totam sed culpa non consequuntur, dolorem pariatur optio iste
+      explicabo fugit inventore! Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Commodi tempore exercitationem ex facilis iusto ad
+      rerum, excepturi voluptatem totam sed culpa non consequuntur, dolorem
+      pariatur optio iste explicabo fugit inventore! Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Commodi tempore exercitationem ex facilis
+      iusto ad rerum, excepturi voluptatem totam sed culpa non consequuntur,
+      dolorem pariatur optio iste explicabo fugit inventore! Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Commodi tempore exercitationem ex
+      facilis iusto ad rerum, excepturi voluptatem totam sed culpa non
+      consequuntur, dolorem pariatur optio iste explicabo fugit inventore!
+    </p>
+    <button id="backToTopBtn">Back to Top</button>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        window.addEventListener("scroll", function () {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            backToTopBtn.style.display = "block";
+          } else {
+            backToTopBtn.style.display = "none";
+          }
+        });
+
+        backToTopBtn.addEventListener("click", function () {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+        });
+      });
+    </script>
+  </body>
+</html>

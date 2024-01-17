@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Customize the video player container */
+        .video-container {
+            position: relative;
+            width: 600px;
+        }
+
+        /* Style the video element */
+        video {
+            width: 100%;
+        }
+
+        /* Hide default video controls */
+        video::-webkit-media-controls {
+            display: none;
+        }
+
+        /* Customize the custom control buttons */
+        .custom-controls {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .custom-button {
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .custom-button:hover {
+            background-color: #777;
+        }
+
+        /* Style the fullscreen button */
+        .custom-fullscreen {
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .custom-fullscreen:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="custom-video" height="400" width="400">
+            <source src="./video/VID-20230701-WA0000.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Custom control buttons -->
+        <div class="custom-controls">
+            <button class="custom-button" id="custom-play">Play</button>
+            <button class="custom-button" id="custom-pause">Pause</button>
+            <button class="custom-button" id="custom-volume">Volume</button>
+            <button class="custom-fullscreen" id="custom-fullscreen">Fullscreen</button>
+        </div>
+    </div>
+
+    <script>
+        // Add custom functionality using JavaScript
+        const video = document.getElementById('custom-video');
+        const playButton = document.getElementById('custom-play');
+        const pauseButton = document.getElementById('custom-pause');
+        const volumeButton = document.getElementById('custom-volume');
+        const fullscreenButton = document.getElementById('custom-fullscreen');
+
+        playButton.addEventListener('click', () => {
+            video.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            video.pause();
+        });
+
+        volumeButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                volumeButton.textContent = "Volume";
+            } else {
+                video.muted = true;
+                volumeButton.textContent = "Muted";
+            }
+        });
+
+        fullscreenButton.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
